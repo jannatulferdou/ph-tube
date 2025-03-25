@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- daisyUI cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <title>PH Tube</title>
+
+    <style>
+        .inter-font {
+            font-family: "Inter", sans-serif;
+        }
+
+        .active {
+            background-color: #FF1F3D;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body class="inter-font">
+    <header>
+        <nav
+            class="md:w-11/12 sm:w-[480px] mx-auto pb-[29px] flex justify-around md:justify-between items-center mt-10 border-b-2 border-[#17171720] mb-[35px]">
+            <div class="logo">
+                <img class="w-[100px] h-[20px] md:w-[175px] md:h-[39px] cursor-pointer" src="Logo.png" alt="Logo">
+            </div>
+            <div class="sort">
+                <label class="input md:w-60 w-40">
+                    <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                            stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input id="search-input" type="search" required placeholder="Search" />
+                </label>
+            </div>
+            <div class="blogs">
+                <button
+                    class="cursor-pointer bg-[#FF1F3D] py-[5px] px-[10px] md:py-[10px] md:px-5 rounded text-white md:text-lg md:font-medium ">Blog</button>
+            </div>
+        </nav>
+    </header>
+   
+
+    <nav id="categoriy-container" class="flex justify-center space-x-2 md:space-x-6 mb-10">
+        <div>
+            <button id="btn-all" onclick="loadVideos()"
+                class="btn py-[5px] px-[10px] md:py-[10px] md:px-5 md:text-lg bg-[#25252515] text-[#252525b2] hover:bg-[#FF1F3D] hover:text-white">All</button>
+        </div>
+    </nav>
+
+    <section id="loader" class="text-center py-10 hidden">
+        <span class="loading loading-dots loading-xl"></span>
+    </section>
+
+    <section id="video-container" class="w-11/12 mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+
+        <div class="col-span-full flex flex-col justify-center items-center py-[180px]">
+            <img class="mb-8 w-[140px]" src="Icon.png" alt="">
+            <h1 class="text-[32px] font-bold text-center">Oops!! Sorry, There is no <br> content here</h1>
+        </div>
+    </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+    <dialog id="video_details" class="modal">
+        <div class="modal-box">
+            <div id="details-container"></div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="Js/index.js"></script>
+</body>
+
+</html>
